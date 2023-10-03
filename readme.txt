@@ -1,7 +1,3 @@
-Quy buy
-Micas Pro Version Link:-
-https://templatesjungle.gumroad.com/l/micas-online-book-store-bootstrap5-website-template
-
 It is a free HTML CSS template by TemplatesJungle.com
 You can use this template as a starter template and start building as you require.
 
