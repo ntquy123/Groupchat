@@ -1,27 +1,7 @@
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Micas Bookstore Template</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="author" content="">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="css/vendor.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
-  </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <symbol id="search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
@@ -99,7 +79,7 @@
                     <a class="nav-link text-uppercase ms-0" href="about.html">About</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active text-uppercase ms-0" href="shop.html">Shop</a>
+                    <a class="nav-link text-uppercase ms-0" href="shop.html">Shop</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link text-uppercase dropdown-toggle ms-0" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Pages<svg class="bi" width="18" height="18"><use xlink:href="#chevron-down"></use></svg></a>
@@ -111,13 +91,13 @@
                         <a href="about.html" class="dropdown-item fs-5 fw-medium">About <span class="text-primary">(PRO)</span></a>
                       </li>
                       <li>
-                        <a href="shop.html" class="dropdown-item active fs-5 fw-medium">Shop <span class="text-primary">(PRO)</span></a>
+                        <a href="shop.html" class="dropdown-item fs-5 fw-medium">Shop <span class="text-primary">(PRO)</span></a>
                       </li>
                       <li>
                         <a href="single-product.html" class="dropdown-item fs-5 fw-medium">Single Product <span class="text-primary">(PRO)</span></a>
                       </li>
                       <li>
-                        <a href="author.html" class="dropdown-item fs-5 fw-medium">Author <span class="text-primary">(PRO)</span></a>
+                        <a href="author.html" class="dropdown-item active fs-5 fw-medium">Author <span class="text-primary">(PRO)</span></a>
                       </li>
                       <li>
                         <a href="login.html" class="dropdown-item fs-5 fw-medium">Account <span class="text-primary">(PRO)</span></a>
@@ -206,291 +186,107 @@
         <div class="container">
           <div class="row">
             <div class="text-center padding-medium no-padding-bottom">
-              <h1>Shop</h1>
+              <h1>Author</h1>
               <div class="breadcrumbs">
                 <span class="item">
                   <a href="index.html">Home ></a>
                 </span>
-                <span class="item">Shop</span>
+                <span class="item">Author</span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <div class="shopify-grid padding-large">
+    <section id="author-grid" class="padding-xlarge">
       <div class="container">
         <div class="row">
-          <main class="col-md-9">
-            <div class="filter-shop d-flex flex-wrap justify-content-between">
-              <div class="showing-product">
-                <p>Showing 1-9 of 55 results</p>
-              </div>
-              <div class="sort-by">
-                <select id="input-sort" class="form-control" data-filter-sort="" data-filter-order="">
-                  <option value="">Default sorting</option>
-                  <option value="">Name (A - Z)</option>
-                  <option value="">Name (Z - A)</option>
-                  <option value="">Price (Low-High)</option>
-                  <option value="">Price (High-Low)</option>
-                  <option value="">Rating (Highest)</option>
-                  <option value="">Rating (Lowest)</option>
-                  <option value="">Model (A - Z)</option>
-                  <option value="">Model (Z - A)</option>   
-                </select>
-              </div>
-            </div>
-            <div class="row product-content product-store">
-              <div class="col-lg-4 col-md-6">
-                <div class="product-card mb-4">
-                  <div class="image-holder">
-                    <img src="images/product-item1.jpg" alt="product-item" class="img-fluid">
-                  </div>
-                  <div class="card-detail text-center pt-3 pb-2">
-                    <h5 class="card-title fs-4 text-uppercase m-0">
-                      <a href="single-product.html">Whispersong</a>
-                    </h5>
-                    <span class="item-price text-primary fs-4">$870</span>
-                    <div class="cart-button mt-1">
-                      <a href="#" class="btn">Add to cart</a>
-                    </div>
-                  </div>
+          <div class="col-md-5">
+            <img src="images/author.jpg" alt="author-image" class="img-fluid">
+          </div>
+          <div class="col-md-7 d-flex align-items-center">
+            <div class="about-author mt-3">
+              <?php
+                $query = "SELECT * FROM System_User_Master";
+                $data = showData($query);
+                
+             if ($data) {
+              foreach ($data as $row) {
+              ?>
+              <div class="country">USA</div>
+              <h3 class="author-name"><?php  echo $row['Name']  ?></h3>
+              <blockquote><?php  echo $row['Description']  ?></p>
+              <div class="meta-info">
+                <div class="meta-item d-flex mb-1">
+                  <span class="text-uppercase me-2">Age:</span>
+                  <ul class="select-list list-unstyled d-flex mb-0">
+                    <li data-value="S" class="select-item">36</li>
+                  </ul>
+                </div>
+                <div class="meta-item d-flex mb-1">
+                  <span class="text-uppercase me-2">Category:</span>
+                  <ul class="select-list list-unstyled d-flex mb-0">
+                    <li data-value="S" class="select-item">Happy</li>
+                  </ul>
+                </div>
+                <div class="meta-item d-flex mb-1">
+                  <span class="text-uppercase me-2">Languages:</span>
+                  <ul class="select-list list-unstyled d-flex mb-0">
+                    <li data-value="S" class="select-item">English,</li>
+                    <li data-value="S" class="select-item">French</li>
+                  </ul>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="product-card mb-4">
-                  <div class="image-holder">
-                    <img src="images/product-item2.jpg" alt="product-item" class="img-fluid">
-                  </div>
-                  <div class="card-detail text-center pt-3 pb-2">
-                    <h5 class="card-title fs-4 text-uppercase m-0">
-                      <a href="single-product.html">Starlight Secrets</a>
-                    </h5>
-                    <span class="item-price text-primary fs-4">$870</span>
-                    <div class="cart-button mt-1">
-                      <a href="#" class="btn">Add to cart</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="product-card mb-4">
-                  <div class="image-holder">
-                    <img src="images/product-item3.jpg" alt="product-item" class="img-fluid">
-                  </div>
-                  <div class="card-detail text-center pt-3 pb-2">
-                    <h5 class="card-title fs-4 text-uppercase m-0">
-                      <a href="single-product.html">Shadow Dance</a>
-                    </h5>
-                    <span class="item-price text-primary fs-4">$870</span>
-                    <div class="cart-button mt-1">
-                      <a href="#" class="btn">Add to cart</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="product-card mb-4">
-                  <div class="image-holder">
-                    <img src="images/product-item4.jpg" alt="product-item" class="img-fluid">
-                  </div>
-                  <div class="card-detail text-center pt-3 pb-2">
-                    <h5 class="card-title fs-4 text-uppercase m-0">
-                      <a href="single-product.html">Crimson Destiny</a>
-                    </h5>
-                    <span class="item-price text-primary fs-4">$870</span>
-                    <div class="cart-button mt-1">
-                      <a href="#" class="btn">Add to cart</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="product-card mb-4">
-                  <div class="image-holder">
-                    <img src="images/product-item5.jpg" alt="product-item" class="img-fluid">
-                  </div>
-                  <div class="card-detail text-center pt-3 pb-2">
-                    <h5 class="card-title fs-4 text-uppercase m-0">
-                      <a href="single-product.html">Enchanted Sands</a>
-                    </h5>
-                    <span class="item-price text-primary fs-4">$870</span>
-                    <div class="cart-button mt-1">
-                      <a href="#" class="btn">Add to cart</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="product-card mb-4">
-                  <div class="image-holder">
-                    <img src="images/product-item6.jpg" alt="product-item" class="img-fluid">
-                  </div>
-                  <div class="card-detail text-center pt-3 pb-2">
-                    <h5 class="card-title fs-4 text-uppercase m-0">
-                      <a href="single-product.html">Aetherial Alchemy</a>
-                    </h5>
-                    <span class="item-price text-primary fs-4">$870</span>
-                    <div class="cart-button mt-1">
-                      <a href="#" class="btn">Add to cart</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="product-card mb-4">
-                  <div class="image-holder">
-                    <img src="images/product-item7.jpg" alt="product-item" class="img-fluid">
-                  </div>
-                  <div class="card-detail text-center pt-3 pb-2">
-                    <h5 class="card-title fs-4 text-uppercase m-0">
-                      <a href="single-product.html">The Lost Labyrinth</a>
-                    </h5>
-                    <span class="item-price text-primary fs-4">$870</span>
-                    <div class="cart-button mt-1">
-                      <a href="#" class="btn">Add to cart</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="product-card mb-4">
-                  <div class="image-holder">
-                    <img src="images/product-item8.jpg" alt="product-item" class="img-fluid">
-                  </div>
-                  <div class="card-detail text-center pt-3 pb-2">
-                    <h5 class="card-title fs-4 text-uppercase m-0">
-                      <a href="single-product.html">Crystal Caverns</a>
-                    </h5>
-                    <span class="item-price text-primary fs-4">$870</span>
-                    <div class="cart-button mt-1">
-                      <a href="#" class="btn">Add to cart</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="product-card mb-4">
-                  <div class="image-holder">
-                    <img src="images/product-item9.jpg" alt="product-item" class="img-fluid">
-                  </div>
-                  <div class="card-detail text-center pt-3 pb-2">
-                    <h5 class="card-title fs-4 text-uppercase m-0">
-                      <a href="single-product.html">Scarlet Secrets</a>
-                    </h5>
-                    <span class="item-price text-primary fs-4">$870</span>
-                    <div class="cart-button mt-1">
-                      <a href="#" class="btn">Add to cart</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <nav class="navigation paging-navigation text-center padding-medium" role="navigation">
-              <div class="pagination loop-pagination d-flex justify-content-center align-items-center">
-                <a href="#" class="d-flex pe-2">
-                  <svg width="24" height="24"><use xlink:href="#angle-left"></use></svg>
-                </a>
-                <span aria-current="page" class="page-numbers current pe-3">1</span>
-                <a class="page-numbers pe-3" href="#">2</a>
-                <a class="page-numbers pe-3" href="#">3</a>
-                <a class="page-numbers pe-3" href="#">4</a>
-                <a class="page-numbers" href="#">5</a>
-                <a href="#" class="d-flex ps-2">
-                  <svg width="24" height="24"><use xlink:href="#angle-right"></use></svg>
-                </a>
-              </div>
-            </nav>
-          </main>
-          <aside class="col-md-3">
-            <div class="sidebar">
-              <div class="widget-menu">
-                <div class="widget-search-bar">
-                  <form role="search" method="get" class="position-relative d-flex justify-content-between align-items-center border-bottom border-dark py-1">
-                    <input class="search-field" placeholder="Search" type="search">
-                    <div class="search-icon position-absolute end-0">
-                      <a href="#">
-                        <svg width="26" height="26" class="search">
-                          <use xlink:href="#search"></use>
-                        </svg>
-                      </a>
-                    </div>
-                  </form>
-                </div> 
-              </div>
-              <div class="widget-product-categories pt-5">
-                <h5 class="widget-title text-uppercase">Categories</h5>
-                <ul class="product-categories sidebar-list list-unstyled">
-                  <li class="cat-item">
-                    <a href="#">All</a>
+              <div class="social-links mt-3">
+                <ul class="d-flex list-unstyled">
+                  <li>
+                    <a href="#">
+                      <svg class="facebook">
+                        <use xlink:href="#facebook">
+                      </svg>
+                    </a>
                   </li>
-                  <li class="cat-item">
-                    <a href="#">Spiritual</a>
+                  <li>
+                    <a href="#">
+                      <svg class="instagram">
+                        <use xlink:href="#instagram">
+                      </svg>
+                    </a>
                   </li>
-                  <li class="cat-item">
-                    <a href="#">Money</a>
+                  <li>
+                    <a href="#">
+                      <svg class="twitter">
+                        <use xlink:href="#twitter">
+                      </svg>
+                    </a>
                   </li>
-                  <li class="cat-item">
-                    <a href="#">Life</a>
+                  <li>
+                    <a href="#">
+                      <svg class="linkedin">
+                        <use xlink:href="#linkedin">
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <svg class="youtube">
+                        <use xlink:href="#youtube">
+                      </svg>
+                    </a>
                   </li>
                 </ul>
               </div>
-              <div class="widget-product-tags pt-3">
-                <h5 class="widget-title text-uppercase">Tags</h5>
-                <ul class="product-tags sidebar-list list-unstyled">
-                  <li class="tags-item">
-                    <a href="#">Finance</a>
-                  </li>
-                  <li class="tags-item">
-                    <a href="#">Cheap</a>
-                  </li>
-                  <li class="tags-item">
-                    <a href="#">Story</a>
-                  </li>
-                  <li class="tags-item">
-                    <a href="#">Biography</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="widget-product-brands pt-3">
-                <h5 class="widget-title text-uppercase">Latest Products</h5>
-                <ul class="product-tags sidebar-list list-unstyled">
-                  <li class="tags-item">
-                    <a href="#">Dance of Fireflies</a>
-                  </li>
-                  <li class="tags-item">
-                    <a href="#">Starry Horizons</a>
-                  </li>
-                  <li class="tags-item">
-                    <a href="#">Tales of Tranquility</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="widget-price-filter pt-3">
-                <h5 class="widget-title text-uppercase">Filter By Price</h5>
-                <ul class="product-tags sidebar-list list-unstyled">
-                  <li class="tags-item">
-                    <a href="#">Less than $100</a>
-                  </li>
-                  <li class="tags-item">
-                    <a href="#">$100 - $200</a>
-                  </li>
-                  <li class="tags-item">
-                    <a href="#">$200 - $300</a>
-                  </li>
-                  <li class="tags-item">
-                    <a href="#">$300 - $400</a>
-                  </li>
-                  <li class="tags-item">
-                    <a href="#">$400 - $500</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </aside>
+              <?php
+              }
+             }
+             else
+             echo "Don't have data"
+              ?>
+            </div>            
+          </div>
         </div>
       </div>
-    </div>
+    </section>
     <section id="newsletter" class="bg-gray padding-medium">
       <div class="container">
         <div class="newsletter">
