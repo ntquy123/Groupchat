@@ -46,7 +46,10 @@ include("config/enum.php");
                     <a class="nav-link text-uppercase ms-0" href="about.php">About</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-uppercase ms-0" href="group.php">Share Group</a>
+                    <a class="nav-link text-uppercase ms-0" href="?menu=listgroup">List Group</a>
+                  </li>
+                     <li class="nav-item">
+                    <a class="nav-link text-uppercase ms-0" href="?menu=addgroup">Add Group</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link text-uppercase dropdown-toggle ms-0" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Pages<svg class="bi" width="18" height="18"><use xlink:href="#chevron-down"></use></svg></a>
